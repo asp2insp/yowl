@@ -16,6 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        Reactor.instance.registerStore("biz", store: DetailsStore())
+        Reactor.instance.registerStore("filters", store: FiltersStore())
+        Reactor.instance.registerStore("results", store: SearchResultsStore())
+        Reactor.instance.reset()
         return true
     }
 

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		61BAF14B14F44C122D2D5D75 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79228754F68C580BAF2E2373 /* libPods.a */; };
 		FEEE5CE71B04391B009C1280 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5CE61B04391B009C1280 /* AppDelegate.swift */; };
-		FEEE5CE91B04391B009C1280 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5CE81B04391B009C1280 /* ViewController.swift */; };
+		FEEE5CE91B04391B009C1280 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5CE81B04391B009C1280 /* ResultsViewController.swift */; };
 		FEEE5CEC1B04391B009C1280 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEEE5CEA1B04391B009C1280 /* Main.storyboard */; };
 		FEEE5CEE1B04391B009C1280 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEEE5CED1B04391B009C1280 /* Images.xcassets */; };
 		FEEE5CF11B04391B009C1280 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEEE5CEF1B04391B009C1280 /* LaunchScreen.xib */; };
@@ -21,6 +21,10 @@
 		FEEE5D241B057332009C1280 /* Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D1D1B057332009C1280 /* Reactor.swift */; };
 		FEEE5D251B057332009C1280 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D1E1B057332009C1280 /* Store.swift */; };
 		FEEE5D261B057332009C1280 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D1F1B057332009C1280 /* Tag.swift */; };
+		FEEE5D2B1B057457009C1280 /* YelpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D2A1B057457009C1280 /* YelpClient.swift */; };
+		FEEE5D2D1B0575C0009C1280 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D2C1B0575C0009C1280 /* DetailsViewController.swift */; };
+		FEEE5D2F1B0575CB009C1280 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D2E1B0575CB009C1280 /* FiltersViewController.swift */; };
+		FEEE5D331B058458009C1280 /* wolf.png in Resources */ = {isa = PBXBuildFile; fileRef = FEEE5D321B058458009C1280 /* wolf.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +44,7 @@
 		FEEE5CE11B04391B009C1280 /* yowl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yowl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEEE5CE51B04391B009C1280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FEEE5CE61B04391B009C1280 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FEEE5CE81B04391B009C1280 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FEEE5CE81B04391B009C1280 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		FEEE5CEB1B04391B009C1280 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FEEE5CED1B04391B009C1280 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FEEE5CF01B04391B009C1280 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -54,6 +58,11 @@
 		FEEE5D1D1B057332009C1280 /* Reactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reactor.swift; sourceTree = "<group>"; };
 		FEEE5D1E1B057332009C1280 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		FEEE5D1F1B057332009C1280 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		FEEE5D271B057406009C1280 /* yowl-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "yowl-Bridging-Header.h"; sourceTree = "<group>"; };
+		FEEE5D2A1B057457009C1280 /* YelpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpClient.swift; sourceTree = "<group>"; };
+		FEEE5D2C1B0575C0009C1280 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		FEEE5D2E1B0575CB009C1280 /* FiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
+		FEEE5D321B058458009C1280 /* wolf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wolf.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,11 +126,15 @@
 			children = (
 				FEEE5D101B043B33009C1280 /* Nuclear */,
 				FEEE5CE61B04391B009C1280 /* AppDelegate.swift */,
-				FEEE5CE81B04391B009C1280 /* ViewController.swift */,
+				FEEE5D2A1B057457009C1280 /* YelpClient.swift */,
+				FEEE5CE81B04391B009C1280 /* ResultsViewController.swift */,
+				FEEE5D2C1B0575C0009C1280 /* DetailsViewController.swift */,
+				FEEE5D2E1B0575CB009C1280 /* FiltersViewController.swift */,
 				FEEE5CEA1B04391B009C1280 /* Main.storyboard */,
 				FEEE5CED1B04391B009C1280 /* Images.xcassets */,
 				FEEE5CEF1B04391B009C1280 /* LaunchScreen.xib */,
 				FEEE5CE41B04391B009C1280 /* Supporting Files */,
+				FEEE5D271B057406009C1280 /* yowl-Bridging-Header.h */,
 			);
 			path = yowl;
 			sourceTree = "<group>";
@@ -129,6 +142,7 @@
 		FEEE5CE41B04391B009C1280 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FEEE5D321B058458009C1280 /* wolf.png */,
 				FEEE5CE51B04391B009C1280 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -250,6 +264,7 @@
 				FEEE5CEC1B04391B009C1280 /* Main.storyboard in Resources */,
 				FEEE5CF11B04391B009C1280 /* LaunchScreen.xib in Resources */,
 				FEEE5CEE1B04391B009C1280 /* Images.xcassets in Resources */,
+				FEEE5D331B058458009C1280 /* wolf.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,14 +315,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEEE5D2B1B057457009C1280 /* YelpClient.swift in Sources */,
 				FEEE5D201B057332009C1280 /* ChangeObserver.swift in Sources */,
 				FEEE5D211B057332009C1280 /* Evaluator.swift in Sources */,
+				FEEE5D2D1B0575C0009C1280 /* DetailsViewController.swift in Sources */,
 				FEEE5D241B057332009C1280 /* Reactor.swift in Sources */,
 				FEEE5D251B057332009C1280 /* Store.swift in Sources */,
-				FEEE5CE91B04391B009C1280 /* ViewController.swift in Sources */,
+				FEEE5CE91B04391B009C1280 /* ResultsViewController.swift in Sources */,
 				FEEE5CE71B04391B009C1280 /* AppDelegate.swift in Sources */,
 				FEEE5D261B057332009C1280 /* Tag.swift in Sources */,
 				FEEE5D231B057332009C1280 /* Immutable.swift in Sources */,
+				FEEE5D2F1B0575CB009C1280 /* FiltersViewController.swift in Sources */,
 				FEEE5D221B057332009C1280 /* Getter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,9 +454,12 @@
 			baseConfigurationReference = B4D70757E99E54AD2BAB06C3 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = yowl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "yowl/yowl-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -447,9 +468,11 @@
 			baseConfigurationReference = C400318D4682A021E29497A2 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = yowl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "yowl/yowl-Bridging-Header.h";
 			};
 			name = Release;
 		};

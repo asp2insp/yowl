@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ResultsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,3 +23,15 @@ class ViewController: UIViewController {
 
 }
 
+// ID: results
+class SearchResultsStore : Store {
+    override func getInitialState() -> Immutable.State {
+        return Immutable.toState([])
+    }
+    
+    override func initialize() {
+        self.on("setResults", handler: { (state, results, action) -> Immutable.State in
+            return Immutable.toState(results as! AnyObject)
+        })
+    }
+}
