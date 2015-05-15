@@ -14,11 +14,13 @@
 		FEEE5CEE1B04391B009C1280 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEEE5CED1B04391B009C1280 /* Images.xcassets */; };
 		FEEE5CF11B04391B009C1280 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEEE5CEF1B04391B009C1280 /* LaunchScreen.xib */; };
 		FEEE5CFD1B04391B009C1280 /* yowlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5CFC1B04391B009C1280 /* yowlTests.swift */; };
-		FEEE5D0B1B043B2C009C1280 /* Evaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D061B043B2C009C1280 /* Evaluator.swift */; };
-		FEEE5D0C1B043B2C009C1280 /* Getter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D071B043B2C009C1280 /* Getter.swift */; };
-		FEEE5D0D1B043B2C009C1280 /* Immutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D081B043B2C009C1280 /* Immutable.swift */; };
-		FEEE5D0E1B043B2C009C1280 /* Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D091B043B2C009C1280 /* Reactor.swift */; };
-		FEEE5D0F1B043B2C009C1280 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D0A1B043B2C009C1280 /* Store.swift */; };
+		FEEE5D201B057332009C1280 /* ChangeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D191B057332009C1280 /* ChangeObserver.swift */; };
+		FEEE5D211B057332009C1280 /* Evaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D1A1B057332009C1280 /* Evaluator.swift */; };
+		FEEE5D221B057332009C1280 /* Getter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D1B1B057332009C1280 /* Getter.swift */; };
+		FEEE5D231B057332009C1280 /* Immutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D1C1B057332009C1280 /* Immutable.swift */; };
+		FEEE5D241B057332009C1280 /* Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D1D1B057332009C1280 /* Reactor.swift */; };
+		FEEE5D251B057332009C1280 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D1E1B057332009C1280 /* Store.swift */; };
+		FEEE5D261B057332009C1280 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D1F1B057332009C1280 /* Tag.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,11 +47,13 @@
 		FEEE5CF61B04391B009C1280 /* yowlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = yowlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEEE5CFB1B04391B009C1280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FEEE5CFC1B04391B009C1280 /* yowlTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yowlTests.swift; sourceTree = "<group>"; };
-		FEEE5D061B043B2C009C1280 /* Evaluator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evaluator.swift; sourceTree = "<group>"; };
-		FEEE5D071B043B2C009C1280 /* Getter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Getter.swift; sourceTree = "<group>"; };
-		FEEE5D081B043B2C009C1280 /* Immutable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Immutable.swift; sourceTree = "<group>"; };
-		FEEE5D091B043B2C009C1280 /* Reactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reactor.swift; sourceTree = "<group>"; };
-		FEEE5D0A1B043B2C009C1280 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		FEEE5D191B057332009C1280 /* ChangeObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeObserver.swift; sourceTree = "<group>"; };
+		FEEE5D1A1B057332009C1280 /* Evaluator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evaluator.swift; sourceTree = "<group>"; };
+		FEEE5D1B1B057332009C1280 /* Getter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Getter.swift; sourceTree = "<group>"; };
+		FEEE5D1C1B057332009C1280 /* Immutable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Immutable.swift; sourceTree = "<group>"; };
+		FEEE5D1D1B057332009C1280 /* Reactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reactor.swift; sourceTree = "<group>"; };
+		FEEE5D1E1B057332009C1280 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		FEEE5D1F1B057332009C1280 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,11 +154,13 @@
 		FEEE5D101B043B33009C1280 /* Nuclear */ = {
 			isa = PBXGroup;
 			children = (
-				FEEE5D061B043B2C009C1280 /* Evaluator.swift */,
-				FEEE5D071B043B2C009C1280 /* Getter.swift */,
-				FEEE5D081B043B2C009C1280 /* Immutable.swift */,
-				FEEE5D091B043B2C009C1280 /* Reactor.swift */,
-				FEEE5D0A1B043B2C009C1280 /* Store.swift */,
+				FEEE5D191B057332009C1280 /* ChangeObserver.swift */,
+				FEEE5D1A1B057332009C1280 /* Evaluator.swift */,
+				FEEE5D1B1B057332009C1280 /* Getter.swift */,
+				FEEE5D1C1B057332009C1280 /* Immutable.swift */,
+				FEEE5D1D1B057332009C1280 /* Reactor.swift */,
+				FEEE5D1E1B057332009C1280 /* Store.swift */,
+				FEEE5D1F1B057332009C1280 /* Tag.swift */,
 			);
 			name = Nuclear;
 			sourceTree = "<group>";
@@ -294,13 +300,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEEE5D0F1B043B2C009C1280 /* Store.swift in Sources */,
-				FEEE5D0D1B043B2C009C1280 /* Immutable.swift in Sources */,
+				FEEE5D201B057332009C1280 /* ChangeObserver.swift in Sources */,
+				FEEE5D211B057332009C1280 /* Evaluator.swift in Sources */,
+				FEEE5D241B057332009C1280 /* Reactor.swift in Sources */,
+				FEEE5D251B057332009C1280 /* Store.swift in Sources */,
 				FEEE5CE91B04391B009C1280 /* ViewController.swift in Sources */,
 				FEEE5CE71B04391B009C1280 /* AppDelegate.swift in Sources */,
-				FEEE5D0C1B043B2C009C1280 /* Getter.swift in Sources */,
-				FEEE5D0E1B043B2C009C1280 /* Reactor.swift in Sources */,
-				FEEE5D0B1B043B2C009C1280 /* Evaluator.swift in Sources */,
+				FEEE5D261B057332009C1280 /* Tag.swift in Sources */,
+				FEEE5D231B057332009C1280 /* Immutable.swift in Sources */,
+				FEEE5D221B057332009C1280 /* Getter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

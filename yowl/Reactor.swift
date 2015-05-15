@@ -14,6 +14,11 @@ public class Reactor {
     var debug : Bool = false
     var stateMap = Immutable.toState([:])
     var stores : [String:Store] = [:]
+    var changeObserver : ChangeObserver!
+    
+    init() {
+        changeObserver = ChangeObserver(reactor: self)
+    }
     
     // Dispatch an action to the appropriate handlers
     func dispatch(action: String, payload: Any) {
@@ -26,14 +31,27 @@ public class Reactor {
         if self.debug {
             NSLog("Reacting to \(action)")
         }
-        self.responder?.onUpdate()
+        self.changeObserver.notifyObservers(self.stateMap)
     }
     
     // Add a new store to the reactor
     func registerStore(id: String, store: Store) {
         self.stores[id] = store
         self.stateMap = self.stateMap.setIn([id], withValue: store.getInitialState())
-        self.responder?.onUpdate()
+        self.changeObserver.notifyObservers(self.stateMap)
+    }
+    
+    // Observe the given getter. The result of the getter will be passed
+    // to the handler, which will be invoked every time there's a new value.
+    func observe(getter: Getter, handler: ((Immutable.State) -> ())) -> UInt {
+        return self.changeObserver.onChange(getter, handler: handler)
+    }
+    
+    // Unobserve the handlers bound to the given IDs.
+    func unobserve(ids : UInt...) {
+        for id in ids {
+            self.changeObserver.removeHandler(id)
+        }
     }
     
     // Restore all registered stores to their initial state
@@ -43,7 +61,7 @@ public class Reactor {
             let resetState = store.handleReset(prevState)
             self.stateMap = self.stateMap.setIn([id], withValue: resetState)
         }
-        self.responder?.onUpdate()
+        changeObserver.handleReset()
     }
     
     // Evaluate the given getter and return the immutable state
@@ -57,12 +75,6 @@ public class Reactor {
     }
     
     // TODO Add binding
-    var responder : ReactorResponder?
-    
     // TODO Add autobinding
     // TODO Add caching for autobinding
-}
-
-public protocol ReactorResponder {
-    func onUpdate()
 }
