@@ -13,7 +13,13 @@ class FiltersViewController : UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("yowl.filter.toggle") as! SwitchCell
-        
+        let filter = Reactor.instance.evaluate(Getter(keyPath: ["filters", indexPath.row]))
+        let display = filter.getIn(["display"]).toSwift() as! String
+        cell.filterName.text = display
+        if let enabled = filter.getIn(["value"]).toSwift() as? Bool {
+            cell.toggle.on = enabled
+        }
+        return cell
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
