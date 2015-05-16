@@ -25,6 +25,18 @@
 		FEEE5D2D1B0575C0009C1280 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D2C1B0575C0009C1280 /* DetailsViewController.swift */; };
 		FEEE5D2F1B0575CB009C1280 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D2E1B0575CB009C1280 /* FiltersViewController.swift */; };
 		FEEE5D331B058458009C1280 /* wolf.png in Resources */ = {isa = PBXBuildFile; fileRef = FEEE5D321B058458009C1280 /* wolf.png */; };
+		FEEE5D351B064F74009C1280 /* FilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D341B064F74009C1280 /* FilterTests.swift */; };
+		FEEE5D361B064F98009C1280 /* ChangeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D191B057332009C1280 /* ChangeObserver.swift */; };
+		FEEE5D371B064F98009C1280 /* Evaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D1A1B057332009C1280 /* Evaluator.swift */; };
+		FEEE5D381B064F98009C1280 /* Getter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D1B1B057332009C1280 /* Getter.swift */; };
+		FEEE5D391B064F98009C1280 /* Immutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D1C1B057332009C1280 /* Immutable.swift */; };
+		FEEE5D3A1B064F98009C1280 /* Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D1D1B057332009C1280 /* Reactor.swift */; };
+		FEEE5D3B1B064F98009C1280 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D1E1B057332009C1280 /* Store.swift */; };
+		FEEE5D3C1B064F98009C1280 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D1F1B057332009C1280 /* Tag.swift */; };
+		FEEE5D3D1B064F98009C1280 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5CE61B04391B009C1280 /* AppDelegate.swift */; };
+		FEEE5D3F1B064F98009C1280 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5CE81B04391B009C1280 /* ResultsViewController.swift */; };
+		FEEE5D401B064F98009C1280 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D2C1B0575C0009C1280 /* DetailsViewController.swift */; };
+		FEEE5D411B064F98009C1280 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D2E1B0575CB009C1280 /* FiltersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +75,7 @@
 		FEEE5D2C1B0575C0009C1280 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		FEEE5D2E1B0575CB009C1280 /* FiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		FEEE5D321B058458009C1280 /* wolf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wolf.png; sourceTree = "<group>"; };
+		FEEE5D341B064F74009C1280 /* FilterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +166,7 @@
 			children = (
 				FEEE5CFC1B04391B009C1280 /* yowlTests.swift */,
 				FEEE5CFA1B04391B009C1280 /* Supporting Files */,
+				FEEE5D341B064F74009C1280 /* FilterTests.swift */,
 			);
 			path = yowlTests;
 			sourceTree = "<group>";
@@ -334,7 +348,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEEE5D361B064F98009C1280 /* ChangeObserver.swift in Sources */,
+				FEEE5D371B064F98009C1280 /* Evaluator.swift in Sources */,
+				FEEE5D411B064F98009C1280 /* FiltersViewController.swift in Sources */,
+				FEEE5D3A1B064F98009C1280 /* Reactor.swift in Sources */,
+				FEEE5D3B1B064F98009C1280 /* Store.swift in Sources */,
 				FEEE5CFD1B04391B009C1280 /* yowlTests.swift in Sources */,
+				FEEE5D351B064F74009C1280 /* FilterTests.swift in Sources */,
+				FEEE5D3C1B064F98009C1280 /* Tag.swift in Sources */,
+				FEEE5D391B064F98009C1280 /* Immutable.swift in Sources */,
+				FEEE5D3D1B064F98009C1280 /* AppDelegate.swift in Sources */,
+				FEEE5D381B064F98009C1280 /* Getter.swift in Sources */,
+				FEEE5D401B064F98009C1280 /* DetailsViewController.swift in Sources */,
+				FEEE5D3F1B064F98009C1280 /* ResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

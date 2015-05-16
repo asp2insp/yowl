@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1Fq-92-3dp">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Results View Controller-->
@@ -18,10 +19,70 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Yxj-UX-gqH"/>
+                    <connections>
+                        <segue destination="4CF-tb-G3x" kind="presentation" identifier="showFilters" id="OVO-iw-zaJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="835" y="1000"/>
+        </scene>
+        <!--Filters View Controller-->
+        <scene sceneID="OCW-Jh-8Xa">
+            <objects>
+                <tableViewController id="4CF-tb-G3x" customClass="FiltersViewController" customModule="yowl" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="f63-Um-66B">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="yowl.filter.toggle" id="lZl-Te-c42" customClass="SwitchCell" customModule="yowl" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lZl-Te-c42" id="lKu-Jr-a8y">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FFg-oZ-Hh8">
+                                            <rect key="frame" x="543" y="8" width="51" height="27"/>
+                                        </switch>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2p-GR-0ZS">
+                                            <rect key="frame" x="8" y="8" width="42" height="27"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="I2p-GR-0ZS" firstAttribute="top" secondItem="lKu-Jr-a8y" secondAttribute="topMargin" constant="8" id="2sg-5Y-d5X"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="FFg-oZ-Hh8" secondAttribute="bottom" id="9Q8-1O-vg1"/>
+                                        <constraint firstItem="I2p-GR-0ZS" firstAttribute="leading" secondItem="lKu-Jr-a8y" secondAttribute="leadingMargin" id="Ok1-7O-R6R"/>
+                                        <constraint firstItem="I2p-GR-0ZS" firstAttribute="top" secondItem="lKu-Jr-a8y" secondAttribute="topMargin" id="SkI-dg-fSV"/>
+                                        <constraint firstItem="FFg-oZ-Hh8" firstAttribute="top" secondItem="lKu-Jr-a8y" secondAttribute="topMargin" id="TRO-Rr-DFf"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="I2p-GR-0ZS" secondAttribute="bottom" id="aof-rA-H19"/>
+                                        <constraint firstItem="I2p-GR-0ZS" firstAttribute="leading" secondItem="lKu-Jr-a8y" secondAttribute="leadingMargin" constant="8" id="oIc-17-nt4"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="FFg-oZ-Hh8" secondAttribute="trailing" id="piU-YX-XPH"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="2sg-5Y-d5X"/>
+                                            <exclude reference="oIc-17-nt4"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="filterName" destination="I2p-GR-0ZS" id="UyM-3B-J3M"/>
+                                    <outlet property="toggle" destination="FFg-oZ-Hh8" id="txz-Ub-rDA"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4CF-tb-G3x" id="mYw-ZO-YiE"/>
+                            <outlet property="delegate" destination="4CF-tb-G3x" id="bOC-aU-sHt"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BnF-Zq-3fu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="835" y="312"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KWa-yF-bH3">

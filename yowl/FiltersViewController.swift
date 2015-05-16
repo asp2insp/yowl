@@ -9,8 +9,23 @@
 import Foundation
 import UIKit
 
-class FiltersViewController : UIViewController {
+class FiltersViewController : UITableViewController {
     
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("yowl.filter.toggle") as! SwitchCell
+        
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Reactor.instance.evaluate(Getter(keyPath: ["filters"])).count
+    }
+}
+
+class SwitchCell : UITableViewCell {
+    var key : String = ""
+    
+    @IBOutlet weak var filterName: UILabel!
+    @IBOutlet weak var toggle: UISwitch!
 }
 
 // ID: filters
@@ -75,9 +90,14 @@ class FiltersStore : Store {
     }
 }
 
-let QUERY = Getter(keyPath: ["filters"], withFunc: { (filters: Immutable.State) -> Immutable.State in
-    filters.reduce(Immutable.toState("?"), f: {(initial: Immutable.State, next: Immutable.State) -> Immutable.State in
+let QUERY = Getter(keyPath: ["filters"], withFunc: { (args) -> Immutable.State in
+    return args[0].reduce(Immutable.toState([:]), f: {(query, next) -> Immutable.State in
+        let param = next.getIn(["param"]).toSwift() as! String
+        let disabled = next.getIn(["disabled"]).toSwift() as! Bool
+        if disabled {
+            return query
+        }
+        return query.setIn([param], withValue: next.getIn(["value"]))
     })
-    return Immutable.State.None
 })
 

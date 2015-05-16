@@ -18,13 +18,13 @@ public class Getter : Hashable, Equatable {
     let compute : ([Immutable.State]) -> Immutable.State
     var id : UInt
     
-    init (keyPath: [AnyObject]) {
+    public init (keyPath: [AnyObject]) {
         self.keyPath = keyPath
         self.compute = IDENTITY
         self.id = 0
     }
     
-    init (keyPath: [AnyObject], withFunc: ([Immutable.State]) -> Immutable.State) {
+    public init (keyPath: [AnyObject], withFunc: ([Immutable.State]) -> Immutable.State) {
         self.keyPath = keyPath
         self.compute = withFunc
         self.id = Getter.tagger.nextTag()

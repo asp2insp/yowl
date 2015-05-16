@@ -10,6 +10,20 @@ import UIKit
 
 class ResultsViewController: UIViewController {
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        // Set up right button
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Apply", style: UIBarButtonItemStyle.Plain, target: self, action: "applySettings:")
+        // Set up left button
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Filters", style: UIBarButtonItemStyle.Plain, target: self, action: "showFilters:")
+        
+        self.navigationItem.title = "Results"
+    }
+    
+    func showFilters(sender: AnyObject) {
+        self.performSegueWithIdentifier("showFilters", sender: self)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

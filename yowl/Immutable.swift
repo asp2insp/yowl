@@ -347,7 +347,14 @@ extension Immutable.State {
     func description() -> String {
         switch self {
         case .Value(let v, let tag):
-            return "(Value)"
+            switch v {
+            case let string as String:
+                return "(Value \(string))"
+            case let int as Int:
+                return "(Value \(int))"
+            default:
+                return "(Value)"
+            }
         case .None:
             return "(None)"
         case .Array(let array, _):
