@@ -33,7 +33,6 @@
 		FEEE5D3A1B064F98009C1280 /* Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D1D1B057332009C1280 /* Reactor.swift */; };
 		FEEE5D3B1B064F98009C1280 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D1E1B057332009C1280 /* Store.swift */; };
 		FEEE5D3C1B064F98009C1280 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D1F1B057332009C1280 /* Tag.swift */; };
-		FEEE5D3F1B064F98009C1280 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5CE81B04391B009C1280 /* ResultsViewController.swift */; };
 		FEEE5D401B064F98009C1280 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D2C1B0575C0009C1280 /* DetailsViewController.swift */; };
 		FEEE5D411B064F98009C1280 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D2E1B0575CB009C1280 /* FiltersViewController.swift */; };
 /* End PBXBuildFile section */
@@ -358,7 +357,6 @@
 				FEEE5D391B064F98009C1280 /* Immutable.swift in Sources */,
 				FEEE5D381B064F98009C1280 /* Getter.swift in Sources */,
 				FEEE5D401B064F98009C1280 /* DetailsViewController.swift in Sources */,
-				FEEE5D3F1B064F98009C1280 /* ResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

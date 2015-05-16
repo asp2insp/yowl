@@ -26,17 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         drawerController.setMaximumLeftDrawerWidth(250.0, animated: true, completion: nil)
         drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureMode.BezelPanningCenterView
         drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.All
-
-//        
-//        [drawerController setDrawerVisualStateBlock:^(MMDrawerController *drawerController, MMDrawerSide drawerSide, CGFloat percentVisible) {
-//            MMDrawerControllerDrawerVisualStateBlock block;
-//            block = [[MMExampleDrawerVisualStateManager sharedManager]
-//            drawerVisualStateBlockForDrawerSide:drawerSide];
-//            if(block){
-//            block(drawerController, drawerSide, percentVisible);
-//            }
-//            }];
-        
+        drawerController.centerHiddenInteractionMode = MMDrawerOpenCenterInteractionMode.NavigationBarOnly
+//        drawerController.setDrawerVisualStateBlock(MMDrawerVisualState.slideAndScaleVisualStateBlock())
         
         return true
     }

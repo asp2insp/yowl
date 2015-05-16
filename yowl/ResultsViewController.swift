@@ -21,7 +21,7 @@ class ResultsViewController: UIViewController {
     }
     
     func showFilters(sender: AnyObject) {
-        self.performSegueWithIdentifier("showFilters", sender: self)
+        self.mm_drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
 
     override func viewDidLoad() {
