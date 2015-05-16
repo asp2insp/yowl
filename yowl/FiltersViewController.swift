@@ -74,24 +74,19 @@ class FiltersStore : Store {
                 "value": false,
                 "disabled": false,
             ],
-            "location": [
-                "display": "Location",
-                "param": "location",
-                "value": "San Francisco",
-                "disabled": false,
-            ],
             "latlong": [
                 "display": "LatLong",
-                "param": "cll",
-                "value": "",
+                "param": "ll",
+                "value": "37.785771,-122.406165",
                 "disabled": false,
             ],
         ])
     }
     
     override func initialize() {
-        self.on("setResults", handler: { (state, results, action) -> Immutable.State in
-            return Immutable.toState(results as! AnyObject)
+        self.on("setSearch", handler: { (state, searchTerm, action) -> Immutable.State in
+            let newSearch = searchTerm as! String
+            return state.setIn(["search", "value"], withValue: Immutable.toState(newSearch))
         })
     }
 }

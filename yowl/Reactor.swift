@@ -48,7 +48,7 @@ public class Reactor {
     }
     
     // Unobserve the handlers bound to the given IDs.
-    func unobserve(ids : UInt...) {
+    func unobserve(ids : [UInt]) {
         for id in ids {
             self.changeObserver.removeHandler(id)
         }

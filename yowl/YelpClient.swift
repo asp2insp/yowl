@@ -31,6 +31,7 @@ enum YelpSortMode: Int {
 class YelpClient: BDBOAuth1RequestOperationManager {
     var accessToken: String!
     var accessSecret: String!
+    var debounceTimer : NSTimer?
     
     class var sharedInstance : YelpClient {
         struct Static {
@@ -58,33 +59,29 @@ class YelpClient: BDBOAuth1RequestOperationManager {
         self.requestSerializer.saveAccessToken(token)
     }
     
-//    func searchWithCurrentTerms() -> AFHTTPRequestOperation {
-//        // For additional parameters, see http://www.yelp.com/developers/documentation/v2/search_api
-//        
-//        // Default the location to San Francisco
-//        var parameters: [String : AnyObject] = ["term": term, "ll": "37.785771,-122.406165"]
-//        
-//        if sort != nil {
-//            parameters["sort"] = sort!.rawValue
-//        }
-//        
-//        if categories != nil && categories!.count > 0 {
-//            parameters["category_filter"] = ",".join(categories!)
-//        }
-//        
-//        if deals != nil {
-//            parameters["deals_filter"] = deals!
-//        }
-//        
-//        println(parameters)
-//        
-//        return self.GET("search", parameters: parameters, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-//            var dictionaries = response["businesses"] as? [NSDictionary]
-//            if dictionaries != nil {
-//                completion(Business.businesses(array: dictionaries!), nil)
-//            }
-//            }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
-//                completion(nil, error)
-//        })
-//    }
+    func searchWithCurrentTerms() {
+        if let timer = debounceTimer {
+            timer.invalidate()
+        }
+        debounceTimer = NSTimer(timeInterval: 0.2, target: self, selector: Selector("dispatchRequest:"), userInfo: nil, repeats: false)
+        NSRunLoop.currentRunLoop().addTimer(debounceTimer!, forMode: "NSDefaultRunLoopMode")
+    }
+    
+    func dispatchRequest(sender: AnyObject) {
+        // For additional parameters, see http://www.yelp.com/developers/documentation/v2/search_api
+        
+        // For SF: "term": term, "ll": "37.785771,-122.406165"
+        var parameters : [String:AnyObject] = [:]
+        
+        for (key, val) in Reactor.instance.evaluateToSwift(QUERY) as! [String:Any?] {
+            parameters[key] = val as? AnyObject
+        }
+        println(parameters)
+        
+        self.GET("search", parameters: parameters, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+                Reactor.instance.dispatch("setResults", payload: response)
+            }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                NSLog("Operation error \(error)")
+        })
+    }
 }

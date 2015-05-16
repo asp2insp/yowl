@@ -20,7 +20,7 @@ class DetailsStore : Store {
     }
     
     override func initialize() {
-        self.on("setResults", handler: { (state, results, action) -> Immutable.State in
+        self.on("setBiz", handler: { (state, results, action) -> Immutable.State in
             return Immutable.toState(results as! AnyObject)
         })
     }

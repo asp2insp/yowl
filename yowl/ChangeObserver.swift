@@ -13,7 +13,7 @@ public class ChangeObserver {
     var observers : [Getter:[UInt:((Immutable.State) -> ())]] = [:]
     
     // TODO: move this caching into Evaluator to match Nuclear-JS
-    var lastKnownStates : [Getter:Immutable.State] = [:]
+    var lastKnownStates : [Int:Int] = [:]
     var reactor : Reactor!
     
     init(reactor: Reactor) {
@@ -23,15 +23,20 @@ public class ChangeObserver {
     // TODO: look into replacing this with NSNotificationCenter
     func notifyObservers(newState: Immutable.State) {
         for (getter, handlers) in observers {
-            let newValue = reactor.evaluate(getter)
-            if (lastKnownStates[getter] ?? Immutable.State.None) === newValue {
+            // We require that the getter compute function be pure, so if the inputs
+            // haven't changed, we don't re-run the getter
+            let newInputValue = reactor.evaluate(Getter(keyPath: Evaluator.keyPathParts(getter))).hashValue
+            
+            // TODO: WE REALLY REALLY NEED TO CHECK THE RECURSIVE GETTERS AS WELL.
+            // THIS WHOLE CHECK SHOULD ACTUALLY BE AGAINST A LIST OF TAGS
+            if lastKnownStates[getter.hashValue] ?? 0 == newInputValue {
                 if reactor.debug { NSLog("No changes, skipping handlers") }
                 continue // If the state hasn't changed, no need to update
             }
-            lastKnownStates[getter] = newValue
+            lastKnownStates[getter.hashValue] = newInputValue
             for (id, handler) in handlers {
                 if reactor.debug { NSLog("Handler #\(id) firing") }
-                handler(newValue)
+                handler(reactor.evaluate(getter))
             }
         }
     }

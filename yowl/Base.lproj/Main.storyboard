@@ -123,12 +123,15 @@
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Ljq-QB-P7v">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="dGS-gP-bCD" id="c5v-SG-fyf"/>
+                                </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="165" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fDd-Td-wfr">
                                 <rect key="frame" x="0.0" y="108" width="600" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="165" id="tvd-9f-prl">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="yowl.result.cell" rowHeight="165" id="tvd-9f-prl" customClass="BusinessCell" customModule="yowl" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tvd-9f-prl" id="SIl-tL-vPx">
@@ -211,8 +214,22 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="addressLabel" destination="ert-Ne-wkx" id="vX1-t4-GI0"/>
+                                            <outlet property="distanceLabel" destination="TYn-ph-tZZ" id="qjl-zB-Eer"/>
+                                            <outlet property="heroImage" destination="aIO-OB-i1t" id="kXs-mz-3en"/>
+                                            <outlet property="priceLabel" destination="16A-91-TlX" id="hzW-Io-wcK"/>
+                                            <outlet property="ratingImage" destination="Sx7-sF-M0w" id="ZTi-PL-DfO"/>
+                                            <outlet property="restaurantName" destination="Npm-GE-12e" id="dM7-j6-aiy"/>
+                                            <outlet property="reviewsLabel" destination="z6Z-yU-wJa" id="Cqq-Ou-WIL"/>
+                                            <outlet property="tagsLabel" destination="gkm-ko-zZu" id="WrD-Nb-pnT"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="dGS-gP-bCD" id="8cP-id-Ztx"/>
+                                    <outlet property="delegate" destination="dGS-gP-bCD" id="yQC-k7-hEu"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -227,6 +244,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="z8Z-LQ-juZ"/>
+                    <connections>
+                        <outlet property="tableView" destination="fDd-Td-wfr" id="hbb-sK-DzS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OME-vG-KRw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

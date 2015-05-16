@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Reactor.instance.registerStore("biz", store: DetailsStore())
         Reactor.instance.registerStore("filters", store: FiltersStore())
         Reactor.instance.registerStore("results", store: SearchResultsStore())
+        Reactor.instance.debug = false
         Reactor.instance.reset()
         
         // Set up the drawer controllers:
