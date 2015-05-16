@@ -23,13 +23,35 @@ PODS:
   - BDBOAuth1Manager (1.5.0):
     - AFNetworking/NSURLConnection (~> 2.5.0)
     - AFNetworking/NSURLSession (~> 2.5.0)
+  - MMDrawerController (0.5.7):
+    - MMDrawerController/Core (= 0.5.7)
+    - MMDrawerController/MMDrawerBarButtonItem (= 0.5.7)
+    - MMDrawerController/MMDrawerVisualStates (= 0.5.7)
+    - MMDrawerController/Subclass (= 0.5.7)
+  - MMDrawerController-Storyboard (0.0.1):
+    - MMDrawerController
+  - MMDrawerController/Core (0.5.7)
+  - MMDrawerController/MMDrawerBarButtonItem (0.5.7):
+    - MMDrawerController/Core
+  - MMDrawerController/MMDrawerVisualStates (0.5.7):
+    - MMDrawerController/Core
+  - MMDrawerController/Subclass (0.5.7):
+    - MMDrawerController/Core
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - BDBOAuth1Manager
+  - MMDrawerController (~> 0.5.7)
+  - MMDrawerController-Storyboard (from `https://raw.github.com/TomSwift/MMDrawerController-Storyboard/1.0.0/MMDrawerController-Storyboard.podspec`)
+
+EXTERNAL SOURCES:
+  MMDrawerController-Storyboard:
+    :podspec: https://raw.github.com/TomSwift/MMDrawerController-Storyboard/1.0.0/MMDrawerController-Storyboard.podspec
 
 SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
   BDBOAuth1Manager: 2e28773b58f880fb36b5cd3efcf0b1fefbc78a99
+  MMDrawerController: 7a4cf8e25596bf2434e03ce50d22a8608ddee6a1
+  MMDrawerController-Storyboard: 64021041eb4f7bc75cc21b1ec82cf445988ba71c
 
 COCOAPODS: 0.37.1

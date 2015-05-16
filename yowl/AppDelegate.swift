@@ -15,11 +15,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        // Set up the data and reactor
         Reactor.instance.registerStore("biz", store: DetailsStore())
         Reactor.instance.registerStore("filters", store: FiltersStore())
         Reactor.instance.registerStore("results", store: SearchResultsStore())
         Reactor.instance.reset()
+        
+        // Set up the drawer controllers:
+        let drawerController = self.window?.rootViewController as! MMDrawerController
+        drawerController.setMaximumLeftDrawerWidth(250.0, animated: true, completion: nil)
+        drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureMode.BezelPanningCenterView
+        drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.All
+
+//        
+//        [drawerController setDrawerVisualStateBlock:^(MMDrawerController *drawerController, MMDrawerSide drawerSide, CGFloat percentVisible) {
+//            MMDrawerControllerDrawerVisualStateBlock block;
+//            block = [[MMExampleDrawerVisualStateManager sharedManager]
+//            drawerVisualStateBlockForDrawerSide:drawerSide];
+//            if(block){
+//            block(drawerController, drawerSide, percentVisible);
+//            }
+//            }];
+        
+        
         return true
     }
 
