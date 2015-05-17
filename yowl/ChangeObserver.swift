@@ -29,15 +29,16 @@ public class ChangeObserver {
             
             // TODO: WE REALLY REALLY NEED TO CHECK THE RECURSIVE GETTERS AS WELL.
             // THIS WHOLE CHECK SHOULD ACTUALLY BE AGAINST A LIST OF TAGS
-            if lastKnownStates[getter.hashValue] ?? 0 == newInputValue {
+            let currentValue = lastKnownStates[getter.hashValue] ?? 0
+            if currentValue == newInputValue {
                 if reactor.debug { NSLog("No changes, skipping handlers") }
                 continue // If the state hasn't changed, no need to update
             }
-            lastKnownStates[getter.hashValue] = newInputValue
             for (id, handler) in handlers {
-                if reactor.debug { NSLog("Handler #\(id) firing") }
+                if reactor.debug { NSLog("Handler #\(id) firing. (\(currentValue) -> \(newInputValue))") }
                 handler(reactor.evaluate(getter))
             }
+            lastKnownStates[getter.hashValue] = newInputValue
         }
     }
     
