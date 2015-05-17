@@ -68,6 +68,9 @@ class YelpClient: BDBOAuth1RequestOperationManager {
     }
     
     func dispatchRequest(sender: AnyObject) {
+        if let timer = debounceTimer {
+            timer.invalidate()
+        }
         // For additional parameters, see http://www.yelp.com/developers/documentation/v2/search_api
         
         // For SF: "term": term, "ll": "37.785771,-122.406165"

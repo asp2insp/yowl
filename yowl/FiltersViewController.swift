@@ -9,38 +9,34 @@
 import Foundation
 import UIKit
 
-class FiltersViewController : UITableViewController {
+class FiltersViewController : UIViewController {
+    @IBOutlet weak var deals: UISegmentedControl!
+    @IBOutlet weak var sort: UISegmentedControl!
+    @IBOutlet weak var distance: UISegmentedControl!
+    let reactor = Reactor.instance
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "Filters"
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("yowl.filter.toggle") as! FilterSwitchCell
-        cell.index = indexPath.row
-        return cell
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Reactor.instance.evaluate(Getter(keyPath: ["filters"])).count
-    }
-}
-
-class FilterSwitchCell : UITableViewCell {
-    var index : Int = 0 {
-        didSet {
-            let filter = Reactor.instance.evaluate(Getter(keyPath: ["filters", index]))
-            let display = filter.getIn(["display"]).toSwift() as! String
-            self.filterName.text = display
-            if let enabled = filter.getIn(["value"]).toSwift() as? Bool {
-                self.toggle.on = enabled
-            }
+    @IBAction func filterChanged(sender: UISegmentedControl) {
+        switch sender {
+        case deals:
+            reactor.dispatch("setDeals", payload: deals.selectedSegmentIndex)
+        case sort:
+            reactor.dispatch("setSort", payload: sort.selectedSegmentIndex)
+        case distance:
+            reactor.dispatch("setDistance", payload: distance.selectedSegmentIndex)
+        default:
+            return
         }
     }
-    
-    @IBOutlet weak var filterName: UILabel!
-    @IBOutlet weak var toggle: UISwitch!
 }
 
 // ID: filters
@@ -53,23 +49,11 @@ class FiltersStore : Store {
                 "value": "",
                 "disabled": false,
             ],
-            "limit": [
-                "display": "Limit",
-                "param": "limit",
-                "value": 20,
-                "disabled": false,
-            ],
             "sort": [
                 "display": "Sort By",
                 "param": "sort",
                 "value": 0,
                 "disabled": false,
-            ],
-            "category": [
-                "display": "Category",
-                "param": "category_filter",
-                "value": "",
-                "disabled": true,
             ],
             "radius": [
                 "display": "Radius",
@@ -96,6 +80,33 @@ class FiltersStore : Store {
         self.on("setSearch", handler: { (state, searchTerm, action) -> Immutable.State in
             let newSearch = searchTerm as! String
             return state.setIn(["search", "value"], withValue: Immutable.toState(newSearch))
+        })
+        self.on("setDeals", handler: { (state, deals, action) -> Immutable.State in
+            let dealsBool = deals as! Int == 1
+            return state.setIn(["deals", "value"], withValue: Immutable.toState(dealsBool))
+        })
+        self.on("setDistance", handler: { (state, distance, action) -> Immutable.State in
+            var d : Int = -1
+            switch distance as! Int {
+            case 0:
+                d = 804 // 0.5 miles in meters
+            case 1:
+                d = 1608 // 1 miles in meters
+            case 2:
+                d = 3216 // 2 miles in meters
+            case 3:
+                d = 8040 // 5 miles in meters
+            default:
+                d = -1
+            }
+            if d == -1 {
+                return state.setIn(["radius", "disabled"], withValue: Immutable.toState(true))
+            }
+            return state.setIn(["radius", "disabled"], withValue: Immutable.toState(false)).setIn(["radius", "value"], withValue: Immutable.toState(d))
+        })
+        self.on("setSort", handler: { (state, sortType, action) -> Immutable.State in
+            let sort = sortType as! Int
+            return state.setIn(["sort", "value"], withValue: Immutable.toState(sort))
         })
     }
 }
