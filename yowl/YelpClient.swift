@@ -72,6 +72,11 @@ class YelpClient: BDBOAuth1RequestOperationManager {
         
         // For SF: "term": term, "ll": "37.785771,-122.406165"
         var parameters : [String:AnyObject] = [:]
+        var categories = Reactor.instance.evaluateToSwift(CATEGORIES) as! String
+        
+        if !categories.isEmpty {
+            parameters["category_filter"] = categories
+        }
         
         for (key, val) in Reactor.instance.evaluateToSwift(QUERY) as! [String:Any?] {
             parameters[key] = val as? AnyObject

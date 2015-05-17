@@ -144,9 +144,9 @@ public class Immutable {
     static func mutateIn(state: State?, atKeyPath: [AnyObject], mutator: (State?) -> State) -> State {
         if atKeyPath.count == 0 {
             // Apply the mutation, and mark the node as modified by updating the tag
-            return mutator(state)
+            return markAsDirty(mutator(state))
         }
-
+        
         let key : AnyObject = first(atKeyPath)!
         let rest = Array(dropFirst(atKeyPath))
         switch state {
@@ -177,7 +177,7 @@ public class Immutable {
             case .Value:
                 fatalError("Tried to replace a single value with a deep state. Check your keypath")
             }
-
+            
         }
     }
     
@@ -185,7 +185,7 @@ public class Immutable {
     static func createIn(keyPath: [AnyObject], generator: (State?) -> State) -> State {
         if keyPath.count == 0 {
             // Apply the mutation, and mark the node as modified by updating the tag
-            return generator(nil)
+            return markAsDirty(generator(nil))
         }
         let key : AnyObject = first(keyPath)!
         let rest = Array(dropFirst(keyPath))
@@ -210,17 +210,17 @@ public class Immutable {
         case .None:
             return f(state, -1)
         case .Value:
-            return f(state, -1)
+            return markAsDirty(f(state, -1))
         case .Map(let m, let tag):
             var map : [String:State] = [:]
             for (key, val) in m {
-                map[key] = f(val, key)
+                map[key] = markAsDirty(f(val, key))
             }
             return .Map(map, tagger.nextTag())
         case .Array(let a, let tag):
             var array : [State] = []
             for var i = 0; i < a.count; i++ {
-                array.append(f(a[i], i))
+                array.append(markAsDirty(f(a[i], i)))
             }
             return .Array(array, tagger.nextTag())
         }
@@ -253,19 +253,19 @@ public class Immutable {
         case .None:
             return .None
         case .Value:
-            return f(initial, state)
+            return markAsDirty(f(initial, state))
         case .Map(let m, let tag):
             var current = initial
             for (key, val) in m {
                 current = f(current, val)
             }
-            return current
+            return markAsDirty(current)
         case .Array(let a, let tag):
             var current = initial
             for var i = 0; i < a.count; i++ {
                 current = f(current, a[i])
             }
-            return current
+            return markAsDirty(current)
         }
     }
     
@@ -284,6 +284,20 @@ public class Immutable {
         }
     }
     
+    // Generate a new tag for the state to mark it as changed
+    static func markAsDirty(state: State) -> State {
+        switch state {
+        case .Value(let a, _):
+            return .Value(a, tagger.nextTag())
+        case .Map(let a, _):
+            return .Map(a, tagger.nextTag())
+        case .Array(let a, _):
+            return .Array(a, tagger.nextTag())
+        case .None:
+            return .None
+        }
+    }
+    
     static func count(state: State) -> Int {
         switch state {
         case .Value:
@@ -294,6 +308,50 @@ public class Immutable {
             return a.count
         case .None:
             return 0
+        }
+    }
+    
+    
+    static func containsKey(state: State, key: String) -> Bool {
+        switch state {
+        case .Map(let m, _):
+            return m[key] != nil
+        default:
+            return false
+        }
+    }
+    
+    static func equals<T : Equatable>(state: State, value: T) -> Bool {
+        switch state {
+        case .Value(let v as T, _):
+            return v == value
+        default:
+            return false
+        }
+    }
+    
+    static func containsValue<T : Equatable>(state: State, value: T) -> Bool {
+        switch state {
+        case .Value(let v as T, _):
+            return v == value
+        case .Map(let m, _):
+            for (key, val) in m {
+                if val.equals(value) {
+                    return true
+                }
+            }
+            return false
+        case .Array(let a, _):
+            for val in a {
+                if val.equals(value) {
+                    return true
+                }
+            }
+            return false
+        case .None:
+            return false
+        default:
+            return false
         }
     }
 }
@@ -335,18 +393,32 @@ extension Immutable.State {
         return Immutable.count(self)
     }
     
+    func containsKey(key: String) -> Bool {
+        return Immutable.containsKey(self, key: key)
+    }
+    
+    func containsValue<T : Equatable>(value: T) -> Bool {
+        return Immutable.containsValue(self, value: value)
+    }
+    
+    func equals<T : Equatable>(value: T) -> Bool {
+        return Immutable.equals(self, value: value)
+    }
+    
+    var exists : Bool {
+        switch self {
+        case .None:
+            return false
+        default:
+            return true
+        }
+    }
+
     // Allow us to print the state for debugging
     func description() -> String {
         switch self {
         case .Value(let v, let tag):
-            switch v {
-            case let string as String:
-                return "(Value \(string))"
-            case let int as Int:
-                return "(Value \(int))"
-            default:
-                return "(Value)"
-            }
+            return "(Value)"
         case .None:
             return "(None)"
         case .Array(let array, _):

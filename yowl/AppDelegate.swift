@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Reactor.instance.registerStore("biz", store: DetailsStore())
         Reactor.instance.registerStore("filters", store: FiltersStore())
         Reactor.instance.registerStore("results", store: SearchResultsStore())
+        Reactor.instance.registerStore("categories", store: CategoriesStore())
         Reactor.instance.debug = false
         Reactor.instance.reset()
         
@@ -30,6 +31,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         drawerController.centerHiddenInteractionMode = MMDrawerOpenCenterInteractionMode.NavigationBarOnly
 //        drawerController.setDrawerVisualStateBlock(MMDrawerVisualState.slideAndScaleVisualStateBlock())
         
+        let manager = AFHTTPRequestOperationManager()
+        manager.responseSerializer.acceptableContentTypes = NSSet(object: "binary/octet-stream") as Set<NSObject>
+        manager.GET("https://s3-media2.fl.yelpcdn.com/assets/srv0/developer_pages/5e749b17ad6a/assets/json/categories.json", parameters: nil, success: { (operation, data) -> Void in
+            Reactor.instance.dispatch("setCategories", payload: data)
+            }) { (operation, error) -> Void in
+                println(error.localizedDescription)
+        }
         return true
     }
 

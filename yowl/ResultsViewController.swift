@@ -18,21 +18,18 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Filters", style: UIBarButtonItemStyle.Plain, target: self, action: "showFilters:")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Categories", style: UIBarButtonItemStyle.Plain, target: self, action: "showCategories:")
         
         let searchBar = UISearchBar()
         searchBar.sizeToFit()
         var currentSize = searchBar.frame.size
 
-        currentSize.width = 250
-
+        currentSize.width = 200
         (searchBar.valueForKey("searchField") as? UITextField)?.textColor = UIColor.whiteColor()
         searchBar.bounds = CGRect(x: 0, y: 0, width: currentSize.width, height: currentSize.height)
         searchBar.searchBarStyle = UISearchBarStyle.Minimal
-        let searchBarView = UIView(frame: CGRectInset(searchBar.bounds, -16.0, 0.0));
-        println(searchBarView.frame)
-        searchBarView.addSubview(searchBar)
         searchBar.delegate = self
-        self.navigationItem.titleView = searchBarView
+        self.navigationItem.titleView = searchBar
         
         tableView.estimatedRowHeight = 120.0;
         tableView.rowHeight = UITableViewAutomaticDimension;
@@ -76,6 +73,10 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func showFilters(sender: AnyObject) {
         self.mm_drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
+    }
+    
+    func showCategories(sender: AnyObject) {
+        self.mm_drawerController.toggleDrawerSide(MMDrawerSide.Right, animated: true, completion: nil)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

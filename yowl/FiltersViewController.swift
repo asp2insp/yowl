@@ -11,14 +11,14 @@ import UIKit
 
 class FiltersViewController : UITableViewController {
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = "Filters"
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("yowl.filter.toggle") as! SwitchCell
-        let filter = Reactor.instance.evaluate(Getter(keyPath: ["filters", indexPath.row]))
-        let display = filter.getIn(["display"]).toSwift() as! String
-        cell.filterName.text = display
-        if let enabled = filter.getIn(["value"]).toSwift() as? Bool {
-            cell.toggle.on = enabled
-        }
+        let cell = tableView.dequeueReusableCellWithIdentifier("yowl.filter.toggle") as! FilterSwitchCell
+        cell.index = indexPath.row
         return cell
     }
     
@@ -27,8 +27,17 @@ class FiltersViewController : UITableViewController {
     }
 }
 
-class SwitchCell : UITableViewCell {
-    var key : String = ""
+class FilterSwitchCell : UITableViewCell {
+    var index : Int = 0 {
+        didSet {
+            let filter = Reactor.instance.evaluate(Getter(keyPath: ["filters", index]))
+            let display = filter.getIn(["display"]).toSwift() as! String
+            self.filterName.text = display
+            if let enabled = filter.getIn(["value"]).toSwift() as? Bool {
+                self.toggle.on = enabled
+            }
+        }
+    }
     
     @IBOutlet weak var filterName: UILabel!
     @IBOutlet weak var toggle: UISwitch!
