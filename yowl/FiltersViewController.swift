@@ -58,7 +58,7 @@ class FiltersStore : Store {
             "radius": [
                 "display": "Radius",
                 "param": "radius_filter",
-                "value": 100,
+                "value": 804,
                 "disabled": true,
             ],
             "deals": [

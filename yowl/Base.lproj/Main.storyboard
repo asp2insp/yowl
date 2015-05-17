@@ -274,6 +274,9 @@
                                     <segment title="5mi"/>
                                 </segments>
                                 <color key="tintColor" red="0.80392156859999997" green="0.0" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="filterChanged:" destination="Kfu-x7-vbD" eventType="valueChanged" id="hs5-yw-qRC"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort By" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tsw-Ys-g3E">
                                 <rect key="frame" x="16" y="256" width="568" height="24"/>
@@ -289,6 +292,9 @@
                                     <segment title="Rating"/>
                                 </segments>
                                 <color key="tintColor" red="0.80392156859999997" green="0.0" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="filterChanged:" destination="Kfu-x7-vbD" eventType="valueChanged" id="ozW-MQ-bgT"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -363,8 +369,8 @@
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
-                                            <exclude reference="FQP-mU-joH"/>
                                             <exclude reference="DOY-O1-n9u"/>
+                                            <exclude reference="FQP-mU-joH"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>

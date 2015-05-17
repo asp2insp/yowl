@@ -41,6 +41,9 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
         self.listenerIds.append(reactor.observe(QUERY, handler: { (newState) -> () in
             YelpClient.sharedInstance.searchWithCurrentTerms()
         }))
+        self.listenerIds.append(reactor.observe(CATEGORIES, handler: { (newState) -> () in
+            YelpClient.sharedInstance.searchWithCurrentTerms()
+        }))
     }
     
     override func viewDidAppear(animated: Bool) {
