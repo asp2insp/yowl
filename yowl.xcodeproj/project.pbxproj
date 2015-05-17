@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		61BAF14B14F44C122D2D5D75 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79228754F68C580BAF2E2373 /* libPods.a */; };
+		FEA706AB1B0953A000A401D4 /* ResultsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA706AA1B0953A000A401D4 /* ResultsStore.swift */; };
+		FEA706AD1B0953A600A401D4 /* BusinessTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA706AC1B0953A600A401D4 /* BusinessTableCell.swift */; };
+		FEA706B01B09540C00A401D4 /* BizStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA706AF1B09540C00A401D4 /* BizStore.swift */; };
+		FEA706B41B09543200A401D4 /* FiltersStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA706B31B09543200A401D4 /* FiltersStore.swift */; };
+		FEA706B61B09544D00A401D4 /* CategoriesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA706B51B09544D00A401D4 /* CategoriesStore.swift */; };
+		FEA706B81B09546C00A401D4 /* CategorySwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA706B71B09546C00A401D4 /* CategorySwitchCell.swift */; };
 		FED650CA1B085B3B0026839A /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED650C91B085B3B0026839A /* CategoriesViewController.swift */; };
 		FEEE5CE71B04391B009C1280 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5CE61B04391B009C1280 /* AppDelegate.swift */; };
 		FEEE5CE91B04391B009C1280 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5CE81B04391B009C1280 /* ResultsViewController.swift */; };
@@ -26,7 +32,6 @@
 		FEEE5D2D1B0575C0009C1280 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D2C1B0575C0009C1280 /* DetailsViewController.swift */; };
 		FEEE5D2F1B0575CB009C1280 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D2E1B0575CB009C1280 /* FiltersViewController.swift */; };
 		FEEE5D331B058458009C1280 /* wolf.png in Resources */ = {isa = PBXBuildFile; fileRef = FEEE5D321B058458009C1280 /* wolf.png */; };
-		FEEE5D351B064F74009C1280 /* FilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D341B064F74009C1280 /* FilterTests.swift */; };
 		FEEE5D361B064F98009C1280 /* ChangeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D191B057332009C1280 /* ChangeObserver.swift */; };
 		FEEE5D371B064F98009C1280 /* Evaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D1A1B057332009C1280 /* Evaluator.swift */; };
 		FEEE5D381B064F98009C1280 /* Getter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D1B1B057332009C1280 /* Getter.swift */; };
@@ -35,7 +40,6 @@
 		FEEE5D3B1B064F98009C1280 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D1E1B057332009C1280 /* Store.swift */; };
 		FEEE5D3C1B064F98009C1280 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D1F1B057332009C1280 /* Tag.swift */; };
 		FEEE5D401B064F98009C1280 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D2C1B0575C0009C1280 /* DetailsViewController.swift */; };
-		FEEE5D411B064F98009C1280 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5D2E1B0575CB009C1280 /* FiltersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +56,12 @@
 		79228754F68C580BAF2E2373 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4D70757E99E54AD2BAB06C3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C400318D4682A021E29497A2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		FEA706AA1B0953A000A401D4 /* ResultsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsStore.swift; sourceTree = "<group>"; };
+		FEA706AC1B0953A600A401D4 /* BusinessTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessTableCell.swift; sourceTree = "<group>"; };
+		FEA706AF1B09540C00A401D4 /* BizStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BizStore.swift; sourceTree = "<group>"; };
+		FEA706B31B09543200A401D4 /* FiltersStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersStore.swift; sourceTree = "<group>"; };
+		FEA706B51B09544D00A401D4 /* CategoriesStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesStore.swift; sourceTree = "<group>"; };
+		FEA706B71B09546C00A401D4 /* CategorySwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySwitchCell.swift; sourceTree = "<group>"; };
 		FED650C91B085B3B0026839A /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		FEEE5CE11B04391B009C1280 /* yowl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yowl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEEE5CE51B04391B009C1280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,7 +85,6 @@
 		FEEE5D2C1B0575C0009C1280 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		FEEE5D2E1B0575CB009C1280 /* FiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		FEEE5D321B058458009C1280 /* wolf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wolf.png; sourceTree = "<group>"; };
-		FEEE5D341B064F74009C1280 /* FilterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +123,44 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FEA706A91B09539000A401D4 /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				FEEE5CE81B04391B009C1280 /* ResultsViewController.swift */,
+				FEA706AA1B0953A000A401D4 /* ResultsStore.swift */,
+				FEA706AC1B0953A600A401D4 /* BusinessTableCell.swift */,
+			);
+			name = Results;
+			sourceTree = "<group>";
+		};
+		FEA706AE1B0953FA00A401D4 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				FEEE5D2C1B0575C0009C1280 /* DetailsViewController.swift */,
+				FEA706AF1B09540C00A401D4 /* BizStore.swift */,
+			);
+			name = Details;
+			sourceTree = "<group>";
+		};
+		FEA706B11B09541900A401D4 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				FEEE5D2E1B0575CB009C1280 /* FiltersViewController.swift */,
+				FEA706B31B09543200A401D4 /* FiltersStore.swift */,
+			);
+			name = Filters;
+			sourceTree = "<group>";
+		};
+		FEA706B21B09542100A401D4 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				FED650C91B085B3B0026839A /* CategoriesViewController.swift */,
+				FEA706B51B09544D00A401D4 /* CategoriesStore.swift */,
+				FEA706B71B09546C00A401D4 /* CategorySwitchCell.swift */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		FEEE5CD81B04391B009C1280 = {
 			isa = PBXGroup;
 			children = (
@@ -140,10 +187,10 @@
 				FEEE5D101B043B33009C1280 /* Nuclear */,
 				FEEE5CE61B04391B009C1280 /* AppDelegate.swift */,
 				FEEE5D2A1B057457009C1280 /* YelpClient.swift */,
-				FEEE5CE81B04391B009C1280 /* ResultsViewController.swift */,
-				FEEE5D2C1B0575C0009C1280 /* DetailsViewController.swift */,
-				FEEE5D2E1B0575CB009C1280 /* FiltersViewController.swift */,
-				FED650C91B085B3B0026839A /* CategoriesViewController.swift */,
+				FEA706A91B09539000A401D4 /* Results */,
+				FEA706AE1B0953FA00A401D4 /* Details */,
+				FEA706B11B09541900A401D4 /* Filters */,
+				FEA706B21B09542100A401D4 /* Categories */,
 				FEEE5CEA1B04391B009C1280 /* Main.storyboard */,
 				FEEE5CED1B04391B009C1280 /* Images.xcassets */,
 				FEEE5CEF1B04391B009C1280 /* LaunchScreen.xib */,
@@ -167,7 +214,6 @@
 			children = (
 				FEEE5CFC1B04391B009C1280 /* yowlTests.swift */,
 				FEEE5CFA1B04391B009C1280 /* Supporting Files */,
-				FEEE5D341B064F74009C1280 /* FilterTests.swift */,
 			);
 			path = yowlTests;
 			sourceTree = "<group>";
@@ -338,9 +384,15 @@
 				FEEE5D251B057332009C1280 /* Store.swift in Sources */,
 				FEEE5CE91B04391B009C1280 /* ResultsViewController.swift in Sources */,
 				FEEE5CE71B04391B009C1280 /* AppDelegate.swift in Sources */,
+				FEA706AB1B0953A000A401D4 /* ResultsStore.swift in Sources */,
 				FEEE5D261B057332009C1280 /* Tag.swift in Sources */,
+				FEA706B41B09543200A401D4 /* FiltersStore.swift in Sources */,
+				FEA706AD1B0953A600A401D4 /* BusinessTableCell.swift in Sources */,
+				FEA706B01B09540C00A401D4 /* BizStore.swift in Sources */,
 				FEEE5D231B057332009C1280 /* Immutable.swift in Sources */,
 				FEEE5D2F1B0575CB009C1280 /* FiltersViewController.swift in Sources */,
+				FEA706B61B09544D00A401D4 /* CategoriesStore.swift in Sources */,
+				FEA706B81B09546C00A401D4 /* CategorySwitchCell.swift in Sources */,
 				FEEE5D221B057332009C1280 /* Getter.swift in Sources */,
 				FED650CA1B085B3B0026839A /* CategoriesViewController.swift in Sources */,
 			);
@@ -352,11 +404,9 @@
 			files = (
 				FEEE5D361B064F98009C1280 /* ChangeObserver.swift in Sources */,
 				FEEE5D371B064F98009C1280 /* Evaluator.swift in Sources */,
-				FEEE5D411B064F98009C1280 /* FiltersViewController.swift in Sources */,
 				FEEE5D3A1B064F98009C1280 /* Reactor.swift in Sources */,
 				FEEE5D3B1B064F98009C1280 /* Store.swift in Sources */,
 				FEEE5CFD1B04391B009C1280 /* yowlTests.swift in Sources */,
-				FEEE5D351B064F74009C1280 /* FilterTests.swift in Sources */,
 				FEEE5D3C1B064F98009C1280 /* Tag.swift in Sources */,
 				FEEE5D391B064F98009C1280 /* Immutable.swift in Sources */,
 				FEEE5D381B064F98009C1280 /* Getter.swift in Sources */,
