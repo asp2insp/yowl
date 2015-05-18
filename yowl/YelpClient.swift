@@ -7,15 +7,6 @@
 //
 
 import Foundation
-
-//
-//  YelpClient.swift
-//  Yelp
-//
-//  Created by Timothy Lee on 9/19/14.
-//  Copyright (c) 2014 Timothy Lee. All rights reserved.
-//
-
 import UIKit
 
 // You can register for Yelp API keys here: http://www.yelp.com/developers/manage_api_keys
@@ -87,7 +78,7 @@ class YelpClient: BDBOAuth1RequestOperationManager {
         for (key, val) in Reactor.instance.evaluateToSwift(QUERY) as! [String:Any?] {
             parameters[key] = val as? AnyObject
         }
-        println(parameters)
+//        println(parameters)
         
         self.GET("search", parameters: parameters, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
                 Reactor.instance.dispatch("setResults", payload: response)

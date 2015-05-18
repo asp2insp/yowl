@@ -106,14 +106,14 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" ambiguous="YES" misplaced="YES" text="1.8 mi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYn-ph-tZZ">
-                                                    <rect key="frame" x="563" y="12" width="37" height="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="1.8 mi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYn-ph-tZZ">
+                                                    <rect key="frame" x="563" y="16" width="37" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" ambiguous="YES" misplaced="YES" text="$$" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16A-91-TlX">
-                                                    <rect key="frame" x="585" y="28" width="15" height="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="$$" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16A-91-TlX">
+                                                    <rect key="frame" x="585" y="32" width="15" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -142,6 +142,7 @@
                                                 <constraint firstItem="aIO-OB-i1t" firstAttribute="leading" secondItem="SIl-tL-vPx" secondAttribute="leadingMargin" id="MtW-Z0-DL8"/>
                                                 <constraint firstItem="Sx7-sF-M0w" firstAttribute="top" secondItem="Npm-GE-12e" secondAttribute="bottom" constant="8" id="Pa3-jh-Qcd"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="aIO-OB-i1t" secondAttribute="bottom" id="RIT-9S-9Rc"/>
+                                                <constraint firstItem="TYn-ph-tZZ" firstAttribute="top" secondItem="SIl-tL-vPx" secondAttribute="topMargin" constant="8" id="T0u-k5-818"/>
                                                 <constraint firstItem="ert-Ne-wkx" firstAttribute="leading" secondItem="Sx7-sF-M0w" secondAttribute="leading" id="WUt-dF-GXD"/>
                                                 <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="gkm-ko-zZu" secondAttribute="bottom" constant="8" id="XEz-X5-NzG"/>
                                                 <constraint firstItem="Npm-GE-12e" firstAttribute="trailing" secondItem="SIl-tL-vPx" secondAttribute="trailingMargin" id="a41-zQ-bSn"/>

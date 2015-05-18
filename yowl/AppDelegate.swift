@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Reactor.instance.registerStore("filters", store: FiltersStore())
         Reactor.instance.registerStore("results", store: SearchResultsStore())
         Reactor.instance.registerStore("categories", store: CategoriesStore())
-        Reactor.instance.debug = true
+        Reactor.instance.debug = false
         Reactor.instance.reset()
     }
     
