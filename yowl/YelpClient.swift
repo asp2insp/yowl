@@ -81,6 +81,9 @@ class YelpClient: BDBOAuth1RequestOperationManager {
             parameters["category_filter"] = categories
         }
         
+        var offset = Reactor.instance.evaluateToSwift(OFFSET) as! Int
+        parameters["offset"] = offset
+        
         for (key, val) in Reactor.instance.evaluateToSwift(QUERY) as! [String:Any?] {
             parameters[key] = val as? AnyObject
         }

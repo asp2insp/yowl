@@ -19,7 +19,20 @@ class SearchResultsStore : Store {
     
     override func initialize() {
         self.on("setResults", handler: { (state, results, action) -> Immutable.State in
-            return Immutable.toState(results as! AnyObject)
+            let offset = Reactor.instance.evaluateToSwift(OFFSET) as! Int
+            if offset == 0 {
+                return Immutable.toState(results as! AnyObject)
+            } else {
+                return state.mutateIn(["businesses"], withMutator: {(s) -> Immutable.State in
+                    let newResults = results as! [String:AnyObject]
+                    let newBiz = newResults["businesses"] as! [AnyObject]
+                    var result = s!
+                    for biz in newBiz {
+                        result = result.push(Immutable.toState(biz))
+                    }
+                    return result
+                })
+            }
         })
     }
 }

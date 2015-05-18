@@ -34,7 +34,7 @@ public class Getter : Hashable, Equatable {
     public var hashValue : Int {
         var hash = 5381 * 33 + Int(self.id)
         for key in self.keyPath {
-            hash = ((hash << 5) + hash) &+ key.hashValue
+            hash = ((hash << 5) &+ hash) &+ key.hashValue
         }
         return hash
     }

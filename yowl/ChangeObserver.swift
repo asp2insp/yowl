@@ -34,11 +34,11 @@ public class ChangeObserver {
                 if reactor.debug { NSLog("No changes, skipping handlers") }
                 continue // If the state hasn't changed, no need to update
             }
+            lastKnownStates[getter.hashValue] = newInputValue
             for (id, handler) in handlers {
                 if reactor.debug { NSLog("Handler #\(id) firing. (\(currentValue) -> \(newInputValue))") }
                 handler(reactor.evaluate(getter))
             }
-            lastKnownStates[getter.hashValue] = newInputValue
         }
     }
     

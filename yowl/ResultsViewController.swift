@@ -31,7 +31,7 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
         searchBar.delegate = self
         self.navigationItem.titleView = searchBar
         
-        tableView.estimatedRowHeight = 120.0;
+        tableView.estimatedRowHeight = 140.0;
         tableView.rowHeight = UITableViewAutomaticDimension;
         
         // Start listening for state changes
@@ -39,9 +39,12 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
             self.tableView.reloadData()
         }))
         self.listenerIds.append(reactor.observe(QUERY, handler: { (newState) -> () in
-            YelpClient.sharedInstance.searchWithCurrentTerms()
+            self.reactor.dispatch("setOffset", payload: 0)
         }))
         self.listenerIds.append(reactor.observe(CATEGORIES, handler: { (newState) -> () in
+            self.reactor.dispatch("setOffset", payload: 0)
+        }))
+        self.listenerIds.append(reactor.observe(OFFSET, handler: { (newState) -> () in
             YelpClient.sharedInstance.searchWithCurrentTerms()
         }))
     }
@@ -94,6 +97,13 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // TODO nav to detail
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        let numRows = reactor.evaluate(RESULTS).count
+        if indexPath.row ==  numRows - 1 {
+            reactor.dispatch("setOffset", payload: numRows)
+        }
     }
 
     override func viewDidLoad() {

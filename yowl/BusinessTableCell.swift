@@ -62,11 +62,6 @@ class BusinessCell : UITableViewCell {
         }
     }
     
-    //    override func awakeFromNib() {
-    //        super.awakeFromNib()
-    //        restaurantName.preferredMaxLayoutWidth = restaurantName.frame.size.width
-    //    }
-    
     override func layoutIfNeeded() {
         super.layoutIfNeeded()
         restaurantName.preferredMaxLayoutWidth = restaurantName.frame.size.width
